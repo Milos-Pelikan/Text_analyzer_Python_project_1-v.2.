@@ -72,7 +72,6 @@ text = TEXTS[text_num-1]
 words = text.split()
 word_count = len(words)
 capitalized_word_count = 0
-first_word = text.split()[0]
 uppercase_word_count = 0
 lowercase_word_count = 0
 number_count = 0
@@ -81,8 +80,8 @@ number_sum = 0
 for word in words:
     if word[0].isupper():
         capitalized_word_count += 1
-    if word.isupper():
-        uppercase_word_count = sum(1 for c in first_word if c.isupper())
+    if word.isupper() and word[0].isalpha() and not word[0].isdigit():
+        uppercase_word_count += 1
     if word.islower():
         lowercase_word_count += 1
     if word.isdigit():
